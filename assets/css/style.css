@@ -1,0 +1,89 @@
+:root {
+    --green-neon: rgb(0, 250, 0);
+    --blue-neon: #36E0DB;
+    --purple-neon: #BD36E0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: radial-gradient(rgb(40, 40, 40),rgb(29, 29, 29));
+
+    font-family: 'Righteous', cursive;
+}
+
+.board-container {
+    width: fit-content;
+    height: fit-content;
+    background-color: #485FF7;
+    /* border: 1px solid black; */
+
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%,-50%);
+    justify-content: center;
+    padding: 30px 20px 40px 20px;
+
+    border-radius: 10px;
+    box-shadow: 0 0 10px #485FF7;
+}
+
+
+.title {
+    text-align: center;
+    color: var(--green-neon);
+    letter-spacing: 5px;
+
+    text-shadow:  0 0 30px var(--green-neon);
+    margin-bottom: 30px;
+}
+
+.line {
+    display: flex;
+    justify-content: center;
+    margin: 1px 0;
+}
+
+.square {
+    width: 90px;
+    height: 90px;
+    background-color: var(--blue-neon);
+    box-shadow: 0px 0px 30px var(--blue-neon);
+    border: 1px solid rgba(48, 22, 109, 0.699);
+
+    margin: 0 1px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Players */
+
+.o::after {
+    content: "O";
+    font-size: 80px;
+    margin-top: -5px;
+
+    color: var(--purple-neon);
+    text-shadow: 0 0 20px var(--purple-neon);
+}
+
+.x::after {
+    content: "X";
+    font-size: 80px;
+    margin-top: -5px;
+
+    color: var(--purple-neon);
+    text-shadow: 0 0 20px var(--purple-neon);
+}
+
