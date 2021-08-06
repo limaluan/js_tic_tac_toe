@@ -4,6 +4,7 @@ let game = {
     gameOver: false,
 
     check: function () {
+        // The possible sequences to win
         let winnerConditions = [
             [0, 1, 2],
             [3, 4, 5],
@@ -15,14 +16,20 @@ let game = {
             [2, 4, 6]
         ];
 
+        // check for a winner
         for (let i of winnerConditions) {
             if (this.board[i[0]] == this.board[i[1]] &&
                 this.board[i[1]] == this.board[i[2]] &&
                 this.board[i[1]] != '') {
                 this.gameOver = true;
-                return [i[0], i[1], i[2]]
+                return [i[0], i[1], i[2]] // return the ids to use for switch backgrouhnd color for the sequence winner
             }
         }
+    },
 
+    // Reset the game data
+    reset: function() {
+        this.board = ['', '', '', '', '', '', '', '', ''];
+        this.gameOver = false;
     }
 }
