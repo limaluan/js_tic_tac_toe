@@ -3,6 +3,7 @@ let game = {
     playerTurn: false, // false value refers to player 1 and true value to the player 2
     gameOver: false,
 
+    // check for a winner
     check: function () {
         // The possible sequences to win
         let winnerConditions = [
@@ -31,5 +32,6 @@ let game = {
     reset: function() {
         this.board = ['', '', '', '', '', '', '', '', ''];
         this.gameOver = false;
+        this.playerTurn = false;
     }
 }

@@ -13,7 +13,7 @@ let interface = {
         } catch (err) {}
     },
 
-    // Changes Interface and save the data board on game.board
+    // Changes Interface and save the data board on "game.board"
     makePlay: function (squareId) {
         if (!game.playerTurn && !this.square[squareId].classList.contains("o")) {
             this.square[squareId].classList.add("x");
@@ -42,6 +42,7 @@ let interface = {
 
             square.style.backgroundColor = "var(--blue-neon)";
         })
+        interface.playerTurn.innerHTML = "X";
         game.reset();
     }
 }
