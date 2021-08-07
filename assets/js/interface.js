@@ -10,12 +10,13 @@ let interface = {
             for (let i of winnerCombination) {
                 interface.square[i].style.backgroundColor = "rgb(0, 250, 0)";
             }
-        } catch (err) {}
+        } catch (err) { }
     },
 
     // Changes Interface and save the data board on "game.board"
     makePlay: function (squareId) {
-        if (!game.playerTurn && !this.square[squareId].classList.contains("o")) {
+        if (!game.playerTurn && !this.square[squareId].classList.contains("o") &&
+            !this.square[squareId].classList.contains("x")) {
             this.square[squareId].classList.add("x");
             this.playerTurn.innerHTML = "O"
 
@@ -23,10 +24,11 @@ let interface = {
             game.playerTurn = !game.playerTurn
             game.check();
             this.isGameOver();
-        } else if (game.playerTurn && !this.square[squareId].classList.contains("x")) {
+        } else if (game.playerTurn && !this.square[squareId].classList.contains("x") &&
+            !this.square[squareId].classList.contains("o")) {
             this.square[squareId].classList.add("o");
             this.playerTurn.innerHTML = "X"
-            
+
             game.board[squareId] = "o";
             game.playerTurn = !game.playerTurn
             game.check();
@@ -35,7 +37,7 @@ let interface = {
     },
 
     // Reset interface and the data (In the game.js)
-    reset: function() {
+    reset: function () {
         this.square.forEach((square) => {
             square.classList.remove("o");
             square.classList.remove("x");
