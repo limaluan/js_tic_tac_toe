@@ -17,7 +17,7 @@ let game = {
             [2, 4, 6]
         ];
 
-        // check for a winner
+        // Check for a Winner
         for (let i of winnerConditions) {
             if (this.board[i[0]] == this.board[i[1]] &&
                 this.board[i[1]] == this.board[i[2]] &&
@@ -26,10 +26,21 @@ let game = {
                 return [i[0], i[1], i[2]] // return the ids to use for switch backgrouhnd color for the sequence winner
             }
         }
+
+        // Check for a Draw
+        let noneSquares = 0;
+        this.board.map((element) => {
+            if (element === "") {
+                noneSquares++;
+            }
+        })
+        if (noneSquares === 0){
+            this.gameOver = true;
+        }
     },
 
     // Reset the game data
-    reset: function() {
+    reset: function () {
         this.board = ['', '', '', '', '', '', '', '', ''];
         this.gameOver = false;
         this.playerTurn = false;
